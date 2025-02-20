@@ -2,11 +2,5 @@ s3:
   bucket: aws-subscription-boxes
   key: meta_Subscription_Boxes.jsonl
 
-
-documentdb:
-  host: dev-subs-docdb-cluster.cluster-cziyk82os3fr.us-east-2.docdb.amazonaws.com
-  port: 27017
-  username: devsubsuser
-  password: DevSubsPassword123!
-  database: product-meta-data
-  collection: subscription-data
+dynamodb:
+  table_name: subscription_table
