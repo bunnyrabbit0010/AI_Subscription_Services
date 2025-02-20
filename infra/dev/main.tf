@@ -111,3 +111,29 @@ output "dev_subs_docdb_endpoint" {
 output "dev_subs_docdb_port" {
   value = aws_docdb_cluster.dev_subs_cluster.port
 }
+
+resource "aws_dynamodb_table" "subscription_table" {
+  name           = "subscription_table"
+  billing_mode   = "PAY_PER_REQUEST"
+  hash_key       = "title"
+
+  attribute {
+    name = "title"
+    type = "S"
+  }
+
+  attribute {
+    name = "main_category"
+    type = "S"
+  }
+
+  global_secondary_index {
+    name               = "MainCategoryIndex"
+    hash_key           = "main_category"
+    projection_type    = "ALL"
+  }
+
+  tags = {
+    Project     = "subscription_services"
+    Environment = "development"  }
+}
