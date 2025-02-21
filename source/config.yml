@@ -4,3 +4,18 @@ s3:
 
 dynamodb:
   table_name: subscription_table
+
+bedrock:
+  kb_id: FWZRNX4EJM
+  model_id: meta.llama3-3-70b-instruct-v1:0
+
+  kb_name: kb_subscriptions
+  kb_desc: Knowledge base for subscription data
+  kb_role_arn: arn:aws:iam::381491860641:role/service-role/AmazonBedrockExecutionRoleForKnowledgeBase_lw39n
+  knowledgeBaseConfiguration:
+    type: VECTOR
+    vectorKnowledgeBaseConfiguration:
+      embeddingModelArn: "arn:aws:bedrock:us-east-2::foundation-model/amazon.titan-embed-text-v2:0"
+      embeddingModelConfiguration:
+        bedrockEmbeddingModelConfiguration:
+          dimensions: 1024
