@@ -1,0 +1,36 @@
+prompts:
+  product_search:
+    name: "Product Search"
+    description: "Find products matching user's search criteria"
+    template: |
+      Based solely on the following product information, list products that match the search query: "{query}"
+      Do not add any commentary or assumptions.
+      
+      Product Information:
+      {retrieved_info}
+      
+      Matching Products:
+
+  similar_products:
+    name: "Similar Products"
+    description: "Find products similar to a selected product"
+    template: |
+      Based only on the provided product information, list products similar to: "{product_name}"
+      Provide only the product names without any additional commentary.
+      
+      Product Information:
+      {retrieved_info}
+      
+      Similar Products:
+
+settings:
+  max_results: 5
+  temperature: 0.7
+  top_p: 0.9
+  max_tokens: 150
+
+instructions:
+  - "Provide only the requested information."
+  - "Do not add explanations or suggestions."
+  - "Avoid phrases like 'Based on the information provided' or 'Note:'."
+  - "List products one per line, prefixed with a dash (-)."
